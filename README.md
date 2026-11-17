@@ -99,3 +99,16 @@ Your instructor will give you a new requirement. Implement it in your refactored
 - Late returns cost $0.50 per day.
 - Students can have 3 open loans, and staff can have 5.
 - Members who owe money can't check out books.
+
+## Project structure
+
+```text
+app.py            Flask app: registers routers and error handlers
+database.py       Only module that opens/creates the SQLite database
+errors.py         ApiError + error_response(message, status_code)
+notifications.py  Mocked notification service (writes to outbox.txt)
+routers/          HTTP layer: books, members, loans, reports
+services/         Business rules for each resource
+repositories/     SQL for each resource
+utils/            validation.py, checks.py, fines.py
+```
